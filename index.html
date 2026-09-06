@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ESCAPE — discover a weekend worth leaving for." />
+  <meta name="theme-color" content="#f3f0e8" />
+  <title>ESCAPE — Weekend Trip Planner</title>
+  <link rel="preconnect" href="https://images.unsplash.com" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="ESCAPE home">ESCAPE<span>↗</span></a>
+    <nav class="desktop-nav" aria-label="Primary">
+      <a href="#discover">Discover</a>
+      <a href="#how">How it works</a>
+      <button class="saved-link" id="savedLink" type="button">Saved <span id="savedCount">0</span></button>
+    </nav>
+    <button class="menu-button" id="menuButton" type="button" aria-label="Open menu" aria-expanded="false">Menu</button>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">WEEKEND, FOUND.</p>
+        <h1>Two days.<br><em>Somewhere else.</em></h1>
+        <p class="hero-sub">Pick a mood, set a budget, and find a short escape worth leaving the group chat for.</p>
+        <a class="primary-cta" href="#discover">Find my escape <span>↘</span></a>
+      </div>
+
+      <div class="hero-visual reveal delay-1">
+        <div class="hero-stamp">48 HOURS<br>OFFLINE-ish</div>
+        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=85" alt="Mountain road winding through a dramatic landscape" />
+        <div class="hero-caption">
+          <span>Friday 18:00</span>
+          <span>→</span>
+          <span>Sunday 22:00</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="ticker" aria-label="Weekend inspiration">
+      <div class="ticker-track">
+        <span>LEAVE THE CITY ✦ TOUCH GRASS ✦ EAT SOMETHING NEW ✦ MISS ONE EMAIL ✦ TAKE THE WINDOW SEAT ✦</span>
+        <span aria-hidden="true">LEAVE THE CITY ✦ TOUCH GRASS ✦ EAT SOMETHING NEW ✦ MISS ONE EMAIL ✦ TAKE THE WINDOW SEAT ✦</span>
+      </div>
+    </section>
+
+    <section class="discover" id="discover">
+      <div class="section-heading reveal">
+        <div>
+          <p class="eyebrow">01 / DISCOVER</p>
+          <h2>What kind of weekend<br>do you need?</h2>
+        </div>
+        <p class="section-note">No 37-tab itinerary. Just a few good options that fit the vibe.</p>
+      </div>
+
+      <div class="planner-panel reveal">
+        <div class="filter-group">
+          <span class="filter-label">Mood</span>
+          <div class="chip-row" id="moodFilters">
+            <button class="chip active" data-filter="mood" data-value="all">Surprise me</button>
+            <button class="chip" data-filter="mood" data-value="mountains">Mountains</button>
+            <button class="chip" data-filter="mood" data-value="slow">Slow life</button>
+            <button class="chip" data-filter="mood" data-value="food">Food trip</button>
+            <button class="chip" data-filter="mood" data-value="adventure">Adventure</button>
+          </div>
+        </div>
+        <div class="filter-group">
+          <span class="filter-label">Budget / person</span>
+          <div class="chip-row" id="budgetFilters">
+            <button class="chip active" data-filter="budget" data-value="all">Any</button>
+            <button class="chip" data-filter="budget" data-value="5000">Under ₹5k</button>
+            <button class="chip" data-filter="budget" data-value="8000">Under ₹8k</button>
+            <button class="chip" data-filter="budget" data-value="12000">Under ₹12k</button>
+          </div>
+        </div>
+        <div class="match-status"><span id="resultCount">6</span> escapes match your weekend.</div>
+      </div>
+
+      <div class="destination-grid" id="destinationGrid"></div>
+      <div class="empty-state" id="emptyState" hidden>
+        <span>¯\\_(ツ)_/¯</span>
+        <h3>Too specific for this weekend.</h3>
+        <p>Try loosening one filter and we’ll find you somewhere good.</p>
+        <button type="button" id="resetFilters">Reset filters</button>
+      </div>
+    </section>
+
+    <section class="manifesto reveal" id="how">
+      <div class="manifesto-number">02</div>
+      <div class="manifesto-copy">
+        <p class="eyebrow">HOW ESCAPE THINKS</p>
+        <h2>Less planning.<br><em>More leaving.</em></h2>
+        <div class="steps">
+          <article><span>01</span><h3>Choose your mood</h3><p>Tell us what your brain is asking for: air, food, quiet, or a little chaos.</p></article>
+          <article><span>02</span><h3>Keep it realistic</h3><p>We stay inside weekend-sized budgets and short-trip energy.</p></article>
+          <article><span>03</span><h3>Steal the plan</h3><p>Open a destination, grab the 48-hour outline, and make it yours.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing reveal">
+      <p class="eyebrow">YOUR WEEKEND IS 120 HOURS AWAY. PROBABLY.</p>
+      <h2>Go somewhere<br><span>you’ll remember.</span></h2>
+      <a href="#discover" class="primary-cta light">Pick an escape <span>↑</span></a>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand footer-brand" href="#top">ESCAPE<span>↗</span></a>
+    <p>Frontend Odyssey 2026 · Warm-up build</p>
+    <p>Built for the weekend.</p>
+  </footer>
+
+  <div class="scrim" id="scrim" hidden></div>
+  <aside class="trip-drawer" id="tripDrawer" aria-hidden="true" aria-labelledby="drawerTitle">
+    <button class="drawer-close" id="drawerClose" type="button" aria-label="Close trip details">×</button>
+    <div id="drawerContent"></div>
+  </aside>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
